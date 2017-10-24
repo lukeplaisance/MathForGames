@@ -9,4 +9,8 @@ public:
 	Vector2 operator+(Vector2 & other);
 	Vector2 operator-(Vector2 & other);
 	Vector2 operator*(float other);
+	bool operator==(Vector2 & other);
+	float Dot(Vector2 & other);
+	Vector2 Normalize();
+	float Magnitude();
 };
