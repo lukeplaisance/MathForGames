@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+using namespace std;
 class Vector2
 {
 public:
@@ -13,4 +15,5 @@ public:
 	float Dot(Vector2 & other);
 	Vector2 Normalize();
 	float Magnitude();
+	friend ostream& operator<<(ostream& os, const Vector2 vector);
 };

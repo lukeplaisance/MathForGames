@@ -78,3 +78,9 @@ float Vector3::Magnitude() //finds the magnitude
 	float mag = sqrt(sum);
 	return mag;
 }
+
+ostream& operator <<(ostream& os, const Vector3 vector)
+{
+	os << "<" << vector.mX << "," << vector.mY << "," << vector.mZ << ">";
+	return os;
+}

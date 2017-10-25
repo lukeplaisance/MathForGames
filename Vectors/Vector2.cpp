@@ -63,3 +63,9 @@ Vector2 Vector2::Normalize() //normalises the vectors
 	norm.mY = mY / Magnitude();
 	return norm;
 }
+
+ostream& operator <<(ostream& os, const Vector2 vector)
+{
+	os << "<" << vector.mX << "," << vector.mY << ">";
+	return os;
+}

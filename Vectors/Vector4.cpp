@@ -54,11 +54,6 @@ float Vector4::Dot(Vector4 & other)
 	return dot;
 }
 
-Vector4 Vector4::Cross(Vector4 & other)
-{
-	return Vector4();
-}
-
 Vector4 Vector4::Normalize()
 {
 	Vector4 norm;
@@ -78,4 +73,10 @@ float Vector4::Magnitude()
 	float sum = Xsquare + Ysquare + Zsquare + Wsquare;
 	float mag = sqrt(sum);
 	return mag;
+}
+
+ostream & operator<<(ostream & os, const Vector4 vector)
+{
+	os << "<" << vector.mX << "," << vector.mY << "," << vector.mZ << "," << vector.mW << ">";
+	return os;
 }
