@@ -80,3 +80,9 @@ ostream & operator<<(ostream & os, const Vector4 vector)
 	os << "<" << vector.mX << "," << vector.mY << "," << vector.mZ << "," << vector.mW << ">";
 	return os;
 }
+
+istream & operator >> (istream & is, Vector4 vector)
+{
+	is >> vector.mX >> vector.mY >> vector.mZ >> vector.mW;
+	return is;
+}

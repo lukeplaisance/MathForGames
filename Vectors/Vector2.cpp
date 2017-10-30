@@ -69,3 +69,9 @@ ostream& operator <<(ostream& os, const Vector2 vector)
 	os << "<" << vector.mX << "," << vector.mY << ">";
 	return os;
 }
+
+istream & operator >>(istream & is, Vector2 vector)
+{
+	is >> vector.mX >> vector.mY;
+	return is;
+}
