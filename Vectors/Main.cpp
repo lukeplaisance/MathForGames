@@ -28,9 +28,7 @@ int main()
 	assert(test8.Dot(test9) == 125);
 	test7.Magnitude();
 	test7.Normalize();
-
-
-
 	std::cout << test7 << endl;
+
 	system("pause");
 }

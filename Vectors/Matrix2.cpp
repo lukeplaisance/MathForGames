@@ -23,20 +23,20 @@ Matrix2::Matrix2(float indexA, float indexB, float indexC, float indexD)
 Matrix2 Matrix2::operator+(Matrix2 & other)
 {
 	Matrix2 add;
-	add.mMat[0] = mMat[0] + other.mMat[0];
-	add.mMat[1] = mMat[1] + other.mMat[1];
-	add.mMat[2] = mMat[2] + other.mMat[2];
-	add.mMat[3] = mMat[3] + other.mMat[3];
+	for (int i = 0; i < 4; i++)
+	{
+		add.mMat[i] = mMat[i] + other.mMat[i];
+	}
 	return add;
 }
 
 Matrix2 Matrix2::operator-(Matrix2 & other)
 {
 	Matrix2 sub;
-	sub.mMat[0] = mMat[0] - other.mMat[0];
-	sub.mMat[1] = mMat[1] - other.mMat[1];
-	sub.mMat[2] = mMat[2] - other.mMat[2];
-	sub.mMat[3] = mMat[3] - other.mMat[3];
+	for (int i = 0; i < 4; i++)
+	{
+		sub.mMat[i] = mMat[i] - other.mMat[i];
+	}
 	return sub;
 }
 

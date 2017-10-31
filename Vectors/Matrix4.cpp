@@ -12,7 +12,9 @@ Matrix4::Matrix4(float mat[])
 	}
 }
 
-Matrix4::Matrix4(float indexA, float indexB, float indexC, float indexD, float indexE, float indexF, float indexG, float indexH, float indexI, float indexJ, float indexK, float indexL, float indexM, float indexN, float indexO, float indexP)
+Matrix4::Matrix4(float indexA, float indexB, float indexC, float indexD, 
+float indexE, float indexF, float indexG, float indexH, float indexI, float indexJ, 
+float indexK, float indexL, float indexM, float indexN, float indexO, float indexP)
 {
 	mMat[0] = indexA;
 	mMat[1] = indexB;
@@ -35,44 +37,20 @@ Matrix4::Matrix4(float indexA, float indexB, float indexC, float indexD, float i
 Matrix4 Matrix4::operator+(Matrix4 & other)
 {
 	Matrix4 add;
-	add.mMat[0] = mMat[0] + other.mMat[0];
-	add.mMat[1] = mMat[1] + other.mMat[1];
-	add.mMat[2] = mMat[2] + other.mMat[2];
-	add.mMat[3] = mMat[3] + other.mMat[3];
-	add.mMat[4] = mMat[4] + other.mMat[4];
-	add.mMat[5] = mMat[5] + other.mMat[5];
-	add.mMat[6] = mMat[6] + other.mMat[6];
-	add.mMat[7] = mMat[7] + other.mMat[7];
-	add.mMat[8] = mMat[8] + other.mMat[8];
-	add.mMat[9] = mMat[2] + other.mMat[9];
-	add.mMat[10] = mMat[3] + other.mMat[10];
-	add.mMat[11] = mMat[4] + other.mMat[11];
-	add.mMat[12] = mMat[5] + other.mMat[12];
-	add.mMat[13] = mMat[6] + other.mMat[13];
-	add.mMat[14] = mMat[7] + other.mMat[14];
-	add.mMat[15] = mMat[8] + other.mMat[15];
+	for (int i = 0; i < 16; i++)
+	{
+		add.mMat[i] = mMat[i] + other.mMat[i];
+	}
 	return add;
 }
 
 Matrix4 Matrix4::operator-(Matrix4 & other)
 {
 	Matrix4 sub;
-	sub.mMat[0] = mMat[0] + other.mMat[0];
-	sub.mMat[1] = mMat[1] + other.mMat[1];
-	sub.mMat[2] = mMat[2] + other.mMat[2];
-	sub.mMat[3] = mMat[3] + other.mMat[3];
-	sub.mMat[4] = mMat[4] + other.mMat[4];
-	sub.mMat[5] = mMat[5] + other.mMat[5];
-	sub.mMat[6] = mMat[6] + other.mMat[6];
-	sub.mMat[7] = mMat[7] + other.mMat[7];
-	sub.mMat[8] = mMat[8] + other.mMat[8];
-	sub.mMat[9] = mMat[2] + other.mMat[9];
-	sub.mMat[10] = mMat[3] + other.mMat[10];
-	sub.mMat[11] = mMat[4] + other.mMat[11];
-	sub.mMat[12] = mMat[5] + other.mMat[12];
-	sub.mMat[13] = mMat[6] + other.mMat[13];
-	sub.mMat[14] = mMat[7] + other.mMat[14];
-	sub.mMat[15] = mMat[8] + other.mMat[15];
+	for (int i = 0; i < 16; i++)
+	{
+		sub.mMat[i] = mMat[i] - other.mMat[i];
+	}
 	return sub;
 }
 

@@ -25,26 +25,23 @@ Matrix3::Matrix3(float indexA, float indexB, float indexC, float indexD, float i
 	mMat[8] = indexI;
 }
 
-void Matrix3::operator+(Matrix3 & other)
+Matrix3 Matrix3::operator+(Matrix3 & other)
 {
+	Matrix3 add;
 	for (int i = 0; i < 9; i++)
 	{
-		mMat[i] + other.mMat[i];
+		add.mMat[i] = mMat[i] + other.mMat[i];
 	}
+	return add;
 }
 
 Matrix3 Matrix3::operator-(Matrix3 & other)
 {
 	Matrix3 sub;
-	sub.mMat[0] = mMat[0] + other.mMat[0];
-	sub.mMat[1] = mMat[1] + other.mMat[1];
-	sub.mMat[2] = mMat[2] + other.mMat[2];
-	sub.mMat[3] = mMat[3] + other.mMat[3];
-	sub.mMat[4] = mMat[4] + other.mMat[4];
-	sub.mMat[5] = mMat[5] + other.mMat[5];
-	sub.mMat[6] = mMat[6] + other.mMat[6];
-	sub.mMat[7] = mMat[7] + other.mMat[7];
-	sub.mMat[8] = mMat[8] + other.mMat[8];
+	for (int i = 0; i < 4; i++)
+	{
+		sub.mMat[i] = mMat[i] - other.mMat[i];
+	}
 	return sub;
 }
 
