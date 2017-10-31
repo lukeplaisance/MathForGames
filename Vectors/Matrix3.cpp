@@ -25,19 +25,12 @@ Matrix3::Matrix3(float indexA, float indexB, float indexC, float indexD, float i
 	mMat[8] = indexI;
 }
 
-Matrix3 Matrix3::operator+(Matrix3 & other)
+void Matrix3::operator+(Matrix3 & other)
 {
-	Matrix3 add;
-	add.mMat[0] = mMat[0] + other.mMat[0];
-	add.mMat[1] = mMat[1] + other.mMat[1];
-	add.mMat[2] = mMat[2] + other.mMat[2];
-	add.mMat[3] = mMat[3] + other.mMat[3];
-	add.mMat[4] = mMat[4] + other.mMat[4];
-	add.mMat[5] = mMat[5] + other.mMat[5];
-	add.mMat[6] = mMat[6] + other.mMat[6];
-	add.mMat[7] = mMat[7] + other.mMat[7];
-	add.mMat[8] = mMat[8] + other.mMat[8];
-	return add;
+	for (int i = 0; i < 9; i++)
+	{
+		mMat[i] + other.mMat[i];
+	}
 }
 
 Matrix3 Matrix3::operator-(Matrix3 & other)
@@ -51,7 +44,7 @@ Matrix3 Matrix3::operator-(Matrix3 & other)
 	sub.mMat[5] = mMat[5] + other.mMat[5];
 	sub.mMat[6] = mMat[6] + other.mMat[6];
 	sub.mMat[7] = mMat[7] + other.mMat[7];
-	sub.mMat[7] = mMat[8] + other.mMat[7];
+	sub.mMat[8] = mMat[8] + other.mMat[8];
 	return sub;
 }
 
@@ -63,18 +56,25 @@ Matrix3 Matrix3::operator*(Matrix3 & other)
 	scale.mMat[2] = mMat[2] * other.mMat[2];
 	scale.mMat[3] = mMat[3] * other.mMat[3];
 	scale.mMat[4] = mMat[4] * other.mMat[4];
-	scale.mMat[5] = mMat[6] * other.mMat[5];
-	scale.mMat[6] = mMat[7] * other.mMat[6];
-	scale.mMat[7] = mMat[8] * other.mMat[7];
+	scale.mMat[5] = mMat[5] * other.mMat[5];
+	scale.mMat[6] = mMat[6] * other.mMat[6];
+	scale.mMat[7] = mMat[7] * other.mMat[7];
+	scale.mMat[8] = mMat[8] * other.mMat[8];
 	return scale;
 }
 
-ostream & operator<<(ostream & os, const Matrix3 vector)
+ostream & operator<<(ostream & os, const Matrix3 matrix)
 {
-	// TODO: insert return statement here
+	os << matrix.mMat[0] << " " << matrix.mMat[1] << " " << matrix.mMat[2] << endl;
+	os << matrix.mMat[3] << " " << matrix.mMat[4] << " " << matrix.mMat[5] << endl;
+	os << matrix.mMat[6] << " " << matrix.mMat[7] << " " << matrix.mMat[8] << endl;
+	return os;
 }
 
-istream & operator >> (istream & is, Matrix3 vector)
+istream & operator >> (istream & is, Matrix3 matrix)
 {
-	// TODO: insert return statement here
+	is >> matrix.mMat[0] >> matrix.mMat[1] >> matrix.mMat[2];
+	is >> matrix.mMat[3] >> matrix.mMat[4] >> matrix.mMat[5];
+	is >> matrix.mMat[6] >> matrix.mMat[7] >> matrix.mMat[8];
+	return is;
 }

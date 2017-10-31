@@ -52,12 +52,15 @@ Matrix2 Matrix2::operator*(Matrix2 &other)
 
 ostream & operator<<(ostream & os, const Matrix2 matrix)
 {
-	
+	os << matrix.mMat[0] << " " << matrix.mMat[1] << endl;
+	os << matrix.mMat[2] << " " << matrix.mMat[3] << endl;
+	return os;
 }
 
 istream & operator >> (istream & is, Matrix2 matrix)
 {
-	is >> matrix.mMat[0] >> matrix.mMat[1] >> matrix.mMat[2] >> matrix.mMat[3] >> matrix.mMat[4];
+	is >> matrix.mMat[0] >> matrix.mMat[1];
+	is >> matrix.mMat[2] >> matrix.mMat[3];
 	return is;
 }
 

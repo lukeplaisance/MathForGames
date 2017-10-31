@@ -1,9 +1,4 @@
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
-#include <iostream>
-#include <assert.h>
-#include "Tests.h"
+#include "Include.h"
 int main()
 {
 	//Vector2 tests
@@ -33,6 +28,8 @@ int main()
 	assert(test8.Dot(test9) == 125);
 	test7.Magnitude();
 	test7.Normalize();
+
+
 
 	std::cout << test7 << endl;
 	system("pause");
