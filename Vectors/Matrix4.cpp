@@ -34,6 +34,21 @@ float indexK, float indexL, float indexM, float indexN, float indexO, float inde
 	mMat[15] = indexP;
 }
 
+Matrix4 Matrix4::RotateX(float angle)
+{
+	return Matrix4();
+}
+
+Matrix4 Matrix4::RotateY(float angle)
+{
+	return Matrix4();
+}
+
+Matrix4 Matrix4::RotateZ(float angle)
+{
+	return Matrix4();
+}
+
 Matrix4 Matrix4::operator+(Matrix4 & other)
 {
 	Matrix4 add;
@@ -56,24 +71,25 @@ Matrix4 Matrix4::operator-(Matrix4 & other)
 
 Matrix4 Matrix4::operator*(Matrix4 & other)
 {
-	Matrix4 scale;
-	scale.mMat[0] = mMat[0] * other.mMat[0];
-	scale.mMat[1] = mMat[1] * other.mMat[1];
-	scale.mMat[2] = mMat[2] * other.mMat[2];
-	scale.mMat[3] = mMat[3] * other.mMat[3];
-	scale.mMat[4] = mMat[4] * other.mMat[4];
-	scale.mMat[5] = mMat[6] * other.mMat[5];
-	scale.mMat[6] = mMat[6] * other.mMat[6];
-	scale.mMat[7] = mMat[7] * other.mMat[7];
-	scale.mMat[8] = mMat[8] * other.mMat[8];
-	scale.mMat[9] = mMat[2] * other.mMat[2];
-	scale.mMat[10] = mMat[10] * other.mMat[10];
-	scale.mMat[11] = mMat[11] * other.mMat[11];
-	scale.mMat[12] = mMat[12] * other.mMat[12];
-	scale.mMat[13] = mMat[13] * other.mMat[13];
-	scale.mMat[14] = mMat[14] * other.mMat[14];
-	scale.mMat[15] = mMat[15] * other.mMat[15];
-	return scale;
+	float *newMat = new float[16];
+
+	newMat[0] = (mMat[0] * other.mMat[0]) + (mMat[1] * other.mMat[4]) + (mMat[2] * other.mMat[8]) + (mMat[3] * other.mMat[12]);
+	newMat[1] = (mMat[0] * other.mMat[1]) + (mMat[1] * other.mMat[5]) + (mMat[2] * other.mMat[9]) + (mMat[3] * other.mMat[13]);
+	newMat[2] = (mMat[0] * other.mMat[2]) + (mMat[1] * other.mMat[6]) + (mMat[2] * other.mMat[10]) + (mMat[3] * other.mMat[14]);
+	newMat[3] = (mMat[0] * other.mMat[3]) + (mMat[1] * other.mMat[7]) + (mMat[2] * other.mMat[11]) + (mMat[3] * other.mMat[15]);
+	newMat[4] = (mMat[4] * other.mMat[0]) + (mMat[5] * other.mMat[4]) + (mMat[6] * other.mMat[8]) + (mMat[7] * other.mMat[12]);
+	newMat[5] = (mMat[4] * other.mMat[1]) + (mMat[5] * other.mMat[5]) + (mMat[6] * other.mMat[9]) + (mMat[7] * other.mMat[13]);
+	newMat[6] = (mMat[4] * other.mMat[2]) + (mMat[5] * other.mMat[6]) + (mMat[6] * other.mMat[10]) + (mMat[7] * other.mMat[14]);
+	newMat[7] = (mMat[4] * other.mMat[3]) + (mMat[5] * other.mMat[7]) + (mMat[6] * other.mMat[11]) + (mMat[7] * other.mMat[15]);
+	newMat[8] = (mMat[8] * other.mMat[0]) + (mMat[9] * other.mMat[4]) + (mMat[10] * other.mMat[8]) + (mMat[11] * other.mMat[12]);
+	newMat[9] = (mMat[8] * other.mMat[1]) + (mMat[9] * other.mMat[5]) + (mMat[10] * other.mMat[9]) + (mMat[11] * other.mMat[13]);
+	newMat[10] = (mMat[8] * other.mMat[2]) + (mMat[9] * other.mMat[6]) + (mMat[10] * other.mMat[10]) + (mMat[11] * other.mMat[14]);
+	newMat[11] = (mMat[8] * other.mMat[3]) + (mMat[9] * other.mMat[7]) + (mMat[10] * other.mMat[11]) + (mMat[11] * other.mMat[15]);
+	newMat[12] = (mMat[12] * other.mMat[0]) + (mMat[13] * other.mMat[4]) + (mMat[14] * other.mMat[8]) + (mMat[15] * other.mMat[12]);
+	newMat[13] = (mMat[12] * other.mMat[1]) + (mMat[13] * other.mMat[5]) + (mMat[14] * other.mMat[9]) + (mMat[15] * other.mMat[13]);
+	newMat[14] = (mMat[12] * other.mMat[2]) + (mMat[13] * other.mMat[6]) + (mMat[14] * other.mMat[10]) + (mMat[15] * other.mMat[14]);
+	newMat[15] = (mMat[12] * other.mMat[3]) + (mMat[13] * other.mMat[7]) + (mMat[14] * other.mMat[11]) + (mMat[15] * other.mMat[15]);
+	return newMat;
 }
 
 ostream & operator<<(ostream & os, const Matrix4 matrix)
