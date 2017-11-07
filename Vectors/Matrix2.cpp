@@ -20,26 +20,11 @@ Matrix2::Matrix2(float indexA, float indexB, float indexC, float indexD)
 	mMat[3] = indexD;
 }
 
-Matrix2 Matrix2::RotateX(float angle)
+Matrix2 Matrix2::Rotate(float angle)
 {
-	float angleCos = cos(angle);
-	float angleSin = sin(angle);
-	float negativeSin = -sin(angle);
-	Matrix2 rotate(angleCos, negativeSin, angleSin, angleCos);
-
-	Matrix2 X;
-	X.mMat[0] = (mMat[0] * angleCos) + (mMat[1] * angleSin);
-	X.mMat[1];
-}
-
-Matrix2 Matrix2::RotateY(float angle)
-{
-	return Matrix2();
-}
-
-Matrix2 Matrix2::RotateZ(float angle)
-{
-	return Matrix2();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix2 *rotate =  new Matrix2(cos(rad), sin(rad), -sin(rad), cos(rad));
+	return *rotate * *this;
 }
 
 Matrix2 Matrix2::operator+(Matrix2 & other)
@@ -70,7 +55,7 @@ Matrix2 Matrix2::operator*(Matrix2 &other)
 	newMat[1] = (mMat[0] * other.mMat[1]) + (mMat[1] * other.mMat[3]);
 	newMat[2] = (mMat[2] * other.mMat[0]) + (mMat[3] * other.mMat[2]);
 	newMat[3] = (mMat[2] * other.mMat[1]) + (mMat[3] * other.mMat[3]);
-
+	return newMat;
 }
 
 ostream & operator<<(ostream & os, const Matrix2 matrix)

@@ -30,5 +30,17 @@ int main()
 	test7.Normalize();
 	std::cout << test7 << endl;
 
+	Matrix2 matrixOne(1, 2, 3, 4);
+	Matrix2 a = matrixOne.Rotate(90);
+	std::cout << a << endl;
+
+	Matrix3 matrixTwo(1, 2, 3, 4, 5, 6, 7, 8, 9);
+	Matrix3 b = matrixTwo.RotateY(90);
+	std::cout << b << endl;
+
+	Matrix4 matrixThree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+	Matrix4 c = matrixThree.RotateZ(90);
+	std::cout << c << endl;
+
 	system("pause");
 }

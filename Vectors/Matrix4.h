@@ -4,7 +4,7 @@ using namespace std;
 class Matrix4
 {
 public:
-	float mMat[];
+	float mMat[16];
 	Matrix4();
 	Matrix4(float mat[]);
 	Matrix4(float indexA, float indexB, float indexC, float indexD, 

@@ -36,17 +36,28 @@ float indexK, float indexL, float indexM, float indexN, float indexO, float inde
 
 Matrix4 Matrix4::RotateX(float angle)
 {
-	return Matrix4();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix4 *rotate = new Matrix4(1, 0, 0, 0,
+								  0, cos(rad), -sin(rad), 0, 
+								  0, sin(rad),cos(rad), 0, 
+								  0, 0, 0, 1);
+	return *rotate * *this;
 }
 
 Matrix4 Matrix4::RotateY(float angle)
 {
-	return Matrix4();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix4 *rotate = new Matrix4(cos(rad), 0, sin(rad), 0, 0, 1, 0, 0, -sin(rad), 0, 
+									cos(rad), 0,0, 0, 0, 1);
+	return *rotate * *this;
 }
 
 Matrix4 Matrix4::RotateZ(float angle)
 {
-	return Matrix4();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix4 *rotate = new Matrix4(cos(rad), -sin(rad), 0, 0, sin(rad), cos(rad), 0, 0,
+									0, 0, 1, 0, 0, 0, 0, 1);	
+		return *rotate * *this;
 }
 
 Matrix4 Matrix4::operator+(Matrix4 & other)

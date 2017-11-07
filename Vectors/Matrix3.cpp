@@ -27,17 +27,23 @@ Matrix3::Matrix3(float indexA, float indexB, float indexC, float indexD, float i
 
 Matrix3 Matrix3::RotateX(float angle)
 {
-	return Matrix3();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix3 *rotate = new Matrix3(1, 0, 0, 0, cos(rad), -sin(rad), 0, sin(rad), cos(rad));
+	return *rotate * *this;
 }
 
 Matrix3 Matrix3::RotateY(float angle)
 {
-	return Matrix3();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix3 *rotate = new Matrix3(cos(rad), 0, -sin(rad), 0, 1, 0, sin(rad), 0, cos(rad));
+	return *rotate * *this;
 }
 
 Matrix3 Matrix3::RotateZ(float angle)
 {
-	return Matrix3();
+	float rad = ((angle * 3.1415926535897) / 180);
+	Matrix3 *rotate = new Matrix3(cos(rad), -sin(rad), 0, sin(rad), cos(rad), 0, 0, 0, 1);
+	return *rotate * *this;
 }
 
 Matrix3 Matrix3::operator+(Matrix3 & other)
